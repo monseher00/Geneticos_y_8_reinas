@@ -1,10 +1,11 @@
 # Genéticos y 8 reinas 
 
 ------------
+![Portada](https://github.com/monseher00/Geneticos_y_8_reinas/assets/92997919/b79e1b25-9fe8-4ae1-aef7-14319da2db4b)
 
+Lizet Monserrath Hernández Reyes.
 
-Lizet Monserrath Hernández Reyes
-Matrícula: S19014453
+Matrícula: S19014453.
 
 ------------
 **Table of Contents**
@@ -19,10 +20,10 @@ Matrícula: S19014453
 
 El ejercicio se plantea desde una visión e implementación de algoritmos genéticos, los cuales son una técnica de optimización inspirada en la evolución biológica que se ha utilizado con éxito en una amplia variedad de problemas de búsqueda y optimización. La relación entre el problema de las 8 reinas y los algoritmos genéticos radica en cómo estos últimos pueden emplearse como una herramienta efectiva para encontrar soluciones aproximadas al problema. Al modelar la evolución de posibles soluciones utilizando conceptos como selección de padres, cruza, mutación y reemplazo, los algoritmos genéticos pueden abordar el desafío de encontrar una disposición válida de las reinas en el tablero de ajedrez. En otras palabras, el ejercicio permite imitar el proceso evolutivo, permitiendo que las soluciones prometedoras sean seleccionadas, recombinadas y ajustadas gradualmente para acercarse a una disposición de reinas que cumpla con todas las restricciones planteadas. 
 
-###Lenguaje implementado y bibliotecas
+### Lenguaje implementado y bibliotecas
 
-- Python.
- - tal...
+- Python;
+ - Matplotlib.
  
 
 ### Tabla de datos
@@ -45,26 +46,26 @@ Para la inicilización aleatoria de las reinas en el tablero de ajedrez, se crea
 
 #### Selección de padres
 
-El método empleado en el código ilustra cómo seleccionar dos padres de la población en función de sus aptitudes utilizando un rango de probabilidad.  Se utiliza la técnica de la ruleta, la cual involucra calcular el fitness individual, ordenar los individuos, calcular la probabilidad acumulada y seleccionar al individuo que alcanza el número aleatorio $$n_r$$. 
+El método empleado en el código ilustra cómo seleccionar dos padres de la población en función de sus aptitudes utilizando un rango de probabilidad.  Se utiliza la técnica de la ruleta, la cual involucra calcular el fitness individual, ordenar los individuos, calcular la probabilidad acumulada y seleccionar al individuo que alcanza el número aleatorio $n_r$. 
 
 #### Cruza
 
 Se emplea la técnica del mapeo parcial para realizar la cruza entre dos individuos representados como vectores. Esta técnica implica una recombinación de permutación.
-En esta implementación, el "mapa" representa el mapeo que se aplicará para realizar la cruza entre los dos padres. Se eligen dos puntos de corte aleatorios en los padres y luego se aplica el mapeo parcial para generar dos hijos
+En esta implementación, el "mapa" representa el mapeo que se aplicará para realizar la cruza entre los dos padres. Se eligen dos puntos de corte aleatorios en los padres y luego se aplica el mapeo parcial para generar dos hijos.
 
-####Mutación
+#### Mutación
 
 En la mutación por inserción, se elige aleatoriamente un gen y se inserta en una posición diferente en el cromosoma. 
 
 De manera general, se toma un individuo como entrada, copia el individuo para no modificar el original y luego selecciona dos posiciones aleatorias distintas en el cromosoma. Luego, toma un gen de la primera posición y lo inserta en la segunda posición.
 
-####Reemplazo
+#### Reemplazo
 
-La técnica de "becha generacional" es un método de reemplazo en algoritmos genéticos donde toda la población existente es reemplazada por la descendencia generada en una nueva generación
+La técnica de "becha generacional" es un método de reemplazo en algoritmos genéticos donde toda la población existente es reemplazada por la descendencia generada en una nueva generación.
 
-###Código
+### Código
 
-####Creación del tablero de ajedrez
+#### Creación del tablero de ajedrez
 
 ```python:
 # Creación del tablero de ajadrez
@@ -80,7 +81,7 @@ for fila in tablero:
 	
 ```
 
-####Selección de padres
+#### Selección de padres
 ```python:
 def seleccion_padres(poblacion, fitness):
     suma_fitness = sum(fitness)
@@ -101,7 +102,7 @@ def seleccion_padres(poblacion, fitness):
 
 ```
 
-####Cruza
+#### Cruza
 ```python:
 def cruza(mapa, padre1, padre2):
     punto_corte1 = random.randint(0, len(padre1) - 1)
@@ -135,7 +136,7 @@ def cruza(mapa, padre1, padre2):
     return hijo1, hijo2
 ```
 
-####Mutación
+#### Mutación
 ```python:
 def mutacion_insercion(individuo):
     hijo_mutado = list(individuo)
@@ -148,19 +149,30 @@ def mutacion_insercion(individuo):
 
     return hijo_mutado
 ```
-####Reemplazo
+#### Reemplazo
 ```python:
 def reemplazo_generacional(poblacion_actual, descendencia):
     poblacion_actual = descendencia
     return poblacion_actual
 ```
 
-####Código completo
-
-###Gráfica de convergencia
-
-###Conclusiones
+#### Código completo
 
 
 
-###End
+### Gráfica de convergencia
+
+Alguno de las intentos: 
+
+![image](https://github.com/monseher00/Geneticos_y_8_reinas/assets/92997919/ab47bad7-e88d-4bb3-8cf1-fb25253d06e2)
+
+
+### Conclusiones
+
+El desafío asociado al problema de las 8 reinas es significativo en el contexto de la programación de algoritmos genéticos y la inteligencia artificial. Este problema clásico presenta la tarea de hallar una disposición en la que ocho reinas en un tablero de ajedrez de 8x8 no se amenacen mutuamente. Este ejercicio, en particular, sirve como una plataforma para explorar y comprender conceptos fundamentales dentro de la programación de algoritmos genéticos.
+
+En primer lugar, este ejercicio exige la representación de soluciones mediante cromosomas, un aspecto crucial en la programación de algoritmos genéticos. Los cromosomas se convierten en representaciones de posibles soluciones al problema y evolucionan a lo largo de generaciones sucesivas.
+
+Asimismo, se aplican operadores genéticos como la selección, cruza y mutación para orquestar la evolución de la población hacia soluciones de mayor calidad. En este contexto, la función de evaluación de aptitud desempeña un papel fundamental al medir la idoneidad de las soluciones, específicamente, cuántas reinas están en situación de amenaza mutua.
+
+La capacidad de resolver exitosamente este problema demuestra la eficacia de los algoritmos genéticos para optimizar soluciones y converger hacia la solución deseada. En este caso, la meta es encontrar la disposición de reinas en el tablero sin conflictos interreinas.
